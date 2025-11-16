@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva Shankar V - Premium Consulting Resume Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Premium Consulting Palette */
+            --primary-dark: #0a1f44;
+            --primary: #1a3a6e;
+            --primary-light: #2d5a9f;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #a855f7;
+            --accent-lime: #84cc16;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg-dark: #0f1419;
+            --bg-gray: #1a1d23;
+            --bg-light: #f8fafc;
+            --text-dark: #0f1419;
+            --text-light: #e2e8f0;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.25);
+            --glow-cyan: 0 0 30px rgba(0, 212, 255, 0.3);
+            --glow-purple: 0 0 30px rgba(168, 85, 247, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            padding: 0;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-gray) 100%);
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: var(--shadow-xl);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        body.dark-mode .container {
+            background: linear-gradient(135deg, rgba(15, 20, 25, 0.95) 0%, rgba(26, 29, 35, 0.95) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.1);
+        }
+
+        /* ===== ANIMATED BACKGROUND ===== */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            overflow: hidden;
+        }
+
+        body.dark-mode .animated-bg {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-gray) 100%);
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            mix-blend-mode: multiply;
+            animation: blob 8s ease-in-out infinite;
+        }
+
+        .blob1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-cyan);
+            top: 0;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob2 {
+            width: 350px;
+            height: 350px;
+            background: var(--accent-purple);
+            top: 200px;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        .blob3 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-lime);
+            bottom: 0;
+            left: 50%;
+            animation-delay: 4s;
+        }
+
+        @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* ===== SCROLL INDICATOR ===== */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-lime), var(--accent-cyan));
+            background-size: 200% 100%;
+            width: 0%;
+            z-index: 999;
+            transition: width 0.1s ease;
+            animation: gradientFlow 3s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        /* ===== THEME TOGGLE ===== */
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            color: var(--accent-cyan);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.15) rotate(20deg);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+        }
+
+        body.dark-mode .theme-toggle {
+            background: rgba(26, 29, 35, 0.95);
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+
+        body.dark-mode .theme-toggle:hover {
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+        }
+
+        /* ===== EXPORT BUTTON ===== */
+        .export-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 999;
+            font-size: 1em;
+            letter-spacing: 0.5px;
+        }
+
+        .export-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.6), 0 10px 30px rgba(168, 85, 247, 0.3);
+        }
+
+        .export-btn:active {
+            transform: translateY(-2px);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            padding: 100px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid var(--accent-cyan);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            opacity: 0.5;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatAnimation 6s ease-in-out infinite;
+        }
+
+        @keyframes floatAnimation {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, -20px) scale(1.1); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .designation-badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            margin-bottom: 25px;
+            border: 2px solid var(--accent-cyan);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: slideInDown 0.8s ease;
+        }
+
+        .header h1 {
+            font-size: 4em;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideInDown 0.8s ease 0.2s both;
+            background: linear-gradient(135deg, white 0%, rgba(0, 212, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-subtitle {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-weight: 500;
+            animation: slideInDown 0.8s ease 0.4s both;
+            letter-spacing: 0.5px;
+        }
+
+        .consulting-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-lime), var(--accent-cyan));
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin: 0 5px;
+            font-weight: 700;
+            font-size: 0.95em;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 900px) {
+            .contact-info {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            padding: 12px 18px;
+            border-radius: 10px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            font-weight: 600;
+            animation: slideInDown 0.8s ease 0.6s both;
+            word-break: break-all;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 212, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .contact-item i {
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 80px 50px;
+        }
+
+        @media (max-width: 1024px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 50px 40px;
+                gap: 40px;
+            }
+        }
+
+        /* ===== STATS CONTAINER ===== */
+        .stats-container {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            padding: 35px 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: backgroundMove 15s linear infinite;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+        }
+
+        .stat-number {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.3px;
+        }
+
+        body.dark-mode .stat-label {
+            color: var(--text-light);
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section {
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section-title {
+            font-size: 1.9em;
+            color: var(--primary);
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)) 1;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent-cyan);
+            animation: expandWidth 0.6s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        body.dark-mode .section-title {
+            color: var(--text-light);
+        }
+
+        .section-title i {
+            font-size: 1.4em;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple), var(--accent-lime));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 35px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border: 4px solid white;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        body.dark-mode .timeline-item::before {
+            border-color: var(--bg-gray);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(15px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
+        }
+
+        .timeline-title {
+            font-size: 1.3em;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-mode .timeline-title {
+            color: var(--accent-cyan);
+        }
+
+        .timeline-date {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .timeline-bullet {
+            margin: 10px 0;
+            font-size: 0.95em;
+            line-height: 1.7;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .timeline-bullet::before {
+            content: '→';
+            color: var(--accent-cyan);
+            font-weight: bold;
+            font-size: 1.3em;
+            flex-shrink: 0;
+        }
+
+        .metric {
+            color: var(--accent-lime);
+            font-weight: 800;
+            background: rgba(132, 204, 22, 0.15);
+            padding: 3px 8px;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-lime);
+            display: inline;
+        }
+
+        .highlight {
+            color: var(--accent-cyan);
+            font-weight: 800;
+        }
+
+        /* ===== ACADEMIC TABLE ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .academic-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        body.dark-mode .academic-table {
+            background: var(--bg-gray);
+        }
+
+        .academic-table thead {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: white;
+        }
+
+        .academic-table th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 800;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .academic-table th:nth-child(1) {
+            min-width: 120px;
+        }
+
+        .academic-table th:nth-child(2) {
+            min-width: 150px;
+        }
+
+        .academic-table th:nth-child(3) {
+            min-width: 180px;
+        }
+
+        .academic-table th:nth-child(4) {
+            min-width: 100px;
+        }
+
+        .academic-table th:nth-child(5) {
+            min-width: 220px;
+        }
+
+        .academic-table td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            font-size: 0.95em;
+        }
+
+        body.dark-mode .academic-table td {
+            border-color: rgba(168, 85, 247, 0.2);
+        }
+
+        .academic-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .academic-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            transform: scale(1.01);
+        }
+
+        .rank-badge, .distinction-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .rank-badge {
+            background: linear-gradient(135deg, var(--accent-lime), #65a30d);
+            color: white;
+            box-shadow: 0 4px 15px rgba(132, 204, 22, 0.4);
+        }
+
+        .distinction-badge {
+            background: linear-gradient(135deg, var(--accent-cyan), #06b6d4);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        /* ===== SKILLS SECTION ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+            padding: 25px;
+            border-radius: 14px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
+        }
+
+        .skill-card h4 {
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-size: 1.2em;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-mode .skill-card h4 {
+            color: var(--accent-cyan);
+        }
+
+        .skill-list {
+            font-size: 0.95em;
+            line-height: 2.2;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        body.dark-mode .skill-list {
+            color: var(--text-light);
+        }
+
+        .skill-list div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-list div:hover {
+            transform: translateX(5px);
+        }
+
+        .skill-list i {
+            color: var(--accent-lime);
+            font-size: 0.9em;
+        }
+
+        /* ===== AWARDS SECTION ===== */
+        .award-container {
+            grid-column: 1 / -1;
+        }
+
+        .award-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .award-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, rgba(132, 204, 22, 0.08) 0%, rgba(0, 212, 255, 0.08) 100%);
+            padding: 25px;
+            border-radius: 14px;
+            border-left: 4px solid var(--accent-lime);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(132, 204, 22, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: backgroundMove 25s linear infinite;
+        }
+
+        .award-card:hover {
+            transform: translateY(-8px) translateX(5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+            background: linear-gradient(135deg, rgba(132, 204, 22, 0.15) 0%, rgba(0, 212, 255, 0.1) 100%);
+        }
+
+        .award-icon {
+            font-size: 2.5em;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 10px rgba(132, 204, 22, 0.3));
+        }
+
+        .award-text {
+            font-size: 0.95em;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        body.dark-mode .award-text {
+            color: var(--text-light);
+        }
+
+        .award-text strong {
+            color: var(--accent-lime);
+            font-weight: 800;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .award-text small {
+            opacity: 0.8;
+            font-size: 0.85em;
+        }
+
+        /* ===== CHARTS CONTAINER ===== */
+        .charts-section {
+            grid-column: 1 / -1;
+            margin-top: 80px;
+            padding-top: 80px;
+            border-top: 3px solid transparent;
+            border-image: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)) 1;
+        }
+
+        .charts-container {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .charts-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-wrapper {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .chart-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: backgroundMove 30s linear infinite;
+        }
+
+        .chart-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-lime), var(--accent-cyan));
+            background-size: 200% 100%;
+            animation: gradientFlow 3s ease infinite;
+        }
+
+        .chart-wrapper:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
+        }
+
+        .chart-title {
+            text-align: center;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.15em;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        body.dark-mode .chart-title {
+            color: var(--accent-cyan);
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.95em;
+            border-top: 3px solid var(--accent-cyan);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer p {
+            margin: 8px 0;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            margin: 15px 0;
+        }
+
+        .footer a {
+            color: var(--accent-lime);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes backgroundMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: 60px 25px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header-subtitle {
+                font-size: 1.1em;
+            }
+
+            .content {
+                padding: 40px 20px;
+                gap: 30px;
+            }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                top: 20px;
+                right: 20px;
+                font-size: 1.2em;
+            }
+
+            .export-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 24px;
+                font-size: 0.9em;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .animated-bg,
+            .theme-toggle,
+            .export-btn,
+            .scroll-indicator {
+                display: none;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            * {
+                box-shadow: none !important;
+            }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-lime));
+        }
+
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: var(--bg-gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Export Button -->
+    <button class="export-btn" onclick="window.print()" title="Export as PDF">
+        <i class="fas fa-download"></i> Export PDF
+    </button>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="designation-badge">
+                    <i class="fas fa-briefcase"></i> Chartered Accountant & Consulting Candidate
+                </div>
+                <h1>SHIVA SHANKAR V</h1>
+                <p class="header-subtitle">
+                    Strategic Financial Analysis | <span class="consulting-highlight">Audit Excellence</span> | Problem-Solving
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:shivashankar.valmiki@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> shivashankar.valmiki@gmail.com
+                    </a>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i> +91 9071020254
+                    </div>
+                    <a href="https://www.linkedin.com/in/-vss/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Stats -->
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Professional Years</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Audit Engagements</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">₹3000+</div>
+                    <div class="stat-label">Cr Revenue Exposure</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Certifications</div>
+                </div>
+            </div>
+
+            <!-- Academic Qualifications -->
+            <div class="section full-width">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i> Academic Excellence
+                </h2>
+                <div class="table-wrapper">
+                    <table class="academic-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Examination</th>
+                                <th>Institute</th>
+                                <th>Score</th>
+                                <th>Recognition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sep 2025 & Nov 2024</td>
+                                <td><strong>CA Final</strong></td>
+                                <td>ICAI</td>
+                                <td><strong>55.50%</strong></td>
+                                <td>2 exemptions & 50+ in 5 subjects</td>
+                            </tr>
+                            <tr>
+                                <td>Nov 2019</td>
+                                <td><strong>CA Inter</strong></td>
+                                <td>ICAI</td>
+                                <td><strong>55.86%</strong></td>
+                                <td><span class="rank-badge">All India Rank 12</span></td>
+                            </tr>
+                            <tr>
+                                <td>June 2016</td>
+                                <td><strong>CA Foundation</strong></td>
+                                <td>ICAI</td>
+                                <td><strong>79.50%</strong></td>
+                                <td><span class="distinction-badge">Distinction</span></td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td><strong>B.Com</strong></td>
+                                <td>IGNOU</td>
+                                <td><strong>67.33%</strong></td>
+                                <td>First Division</td>
+                            </tr>
+                            <tr>
+                                <td>2016</td>
+                                <td><strong>Class XII</strong></td>
+                                <td>LRG Naidu Jr College</td>
+                                <td><strong>97.50%</strong></td>
+                                <td><span class="rank-badge">State Rank 3 - Prathibha Medal</span></td>
+                            </tr>
+                            <tr>
+                                <td>2014</td>
+                                <td><strong>Class X</strong></td>
+                                <td>Sri Balaji Vidya Vihar</td>
+                                <td><strong>93.33%</strong></td>
+                                <td><span class="rank-badge">District Rank 1</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Professional Timeline -->
+            <div class="section full-width">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line"></i> Professional Journey
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">Post-Articleship: Statutory Audit Executive</div>
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i> Mar 2023 – Jan 2025 | KPMG (BSR & Associates), Bangalore
+                        </div>
+                        <div class="timeline-bullet">
+                            Led end-to-end execution of Agreed-Upon Procedures for <span class="highlight">Unilever group</span> (<span class="metric">₹60,000+ Cr</span>), securing <span class="metric">100% completion</span> and partner sign-off.
+                        </div>
+                        <div class="timeline-bullet">
+                            Improved team quality <span class="metric">by 50%</span> through training <span class="metric">15+ members</span> on audit protocols.
+                        </div>
+                        <div class="timeline-bullet">
+                            Delivered <span class="metric">10% quality improvement</span> via structured feedback mechanisms.
+                        </div>
+                        <div class="timeline-bullet">
+                            Enhanced control efficiency for <span class="highlight">Manipal Hospitals</span>, <span class="highlight">JLL</span>, <span class="highlight">RMZ Pvt Ltd</span>, reducing testing <span class="metric">by 20%</span>.
+                        </div>
+                        <div class="timeline-bullet">
+                            Recipient of <span class="highlight">Kudos Award</span> for exceptional Unilever engagement performance.
+                        </div>
+                        <div class="timeline-bullet">
+                            Strengthened analytical decision-making through variance analysis and financial trend identification.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Articleship: Statutory Audit Staff Accountant</div>
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i> Mar 2020 – Mar 2023 | KPMG (BSR & Associates), Bangalore
+                        </div>
+                        <div class="timeline-bullet">
+                            Executed statutory audits for <span class="highlight">listed & unlisted</span> clients across manufacturing & service sectors (<span class="metric">₹100 Cr to ₹3,000+ Cr</span>).
+                        </div>
+                        <div class="timeline-bullet">
+                            Analyzed PE frameworks of <span class="highlight">Fireside Ventures</span> (<span class="metric">₹3,000+ Cr fund</span>), deepening investment thesis expertise.
+                        </div>
+                        <div class="timeline-bullet">
+                            Led e-migration of audit workpapers, enhancing efficiency <span class="metric">by 40%</span> for <span class="metric">₹100+ Cr</span> client.
+                        </div>
+                        <div class="timeline-bullet">
+                            Supported <span class="highlight">Ind AS transition</span> for <span class="metric">₹400 Cr</span> telecom company, achieving <span class="metric">100% accuracy</span>.
+                        </div>
+                        <div class="timeline-bullet">
+                            Handled <span class="highlight">tax audit & CARO</span> compliance for <span class="metric">₹700 Cr</span> food processing entity with zero exceptions.
+                        </div>
+                        <div class="timeline-bullet">
+                            Improved delivery efficiency <span class="metric">by 20%</span> through continuous learning and tool mastery.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consulting Credentials -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-certificate"></i> Consulting Credentials
+                </h2>
+                <div class="skill-card">
+                    <h4><i class="fas fa-star"></i> McKinsey Forward Program</h4>
+                    <div class="skill-list">
+                        <div><i class="fas fa-check-circle"></i> Problem-solving frameworks</div>
+                        <div><i class="fas fa-check-circle"></i> Impact communication</div>
+                        <div><i class="fas fa-check-circle"></i> Stakeholder management</div>
+                        <div><i class="fas fa-check-circle"></i> Leadership & resilience</div>
+                    </div>
+                </div>
+                <div class="skill-card" style="margin-top: 20px;">
+                    <h4><i class="fas fa-chart-line"></i> Job Simulations</h4>
+                    <div class="skill-list">
+                        <div><i class="fas fa-check-circle"></i> Strategy Consulting (BCG)</div>
+                        <div><i class="fas fa-check-circle"></i> Management Consulting (PwC)</div>
+                        <div><i class="fas fa-check-circle"></i> Investment Banking (JPMorgan)</div>
+                        <div><i class="fas fa-check-circle"></i> Private Equity (Vista Equity)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Skills -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb"></i> Core Capabilities
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h4><i class="fas fa-briefcase"></i> Technical Expertise</h4>
+                        <div class="skill-list">
+                            <div><i class="fas fa-check-circle"></i> Statutory Audits</div>
+                            <div><i class="fas fa-check-circle"></i> Financial Analysis</div>
+                            <div><i class="fas fa-check-circle"></i> Risk Assessment</div>
+                            <div><i class="fas fa-check-circle"></i> Valuation Models</div>
+                            <div><i class="fas fa-check-circle"></i> Ind AS Expertise</div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h4><i class="fas fa-brain"></i> Consulting Skills</h4>
+                        <div class="skill-list">
+                            <div><i class="fas fa-check-circle"></i> Problem-Solving</div>
+                            <div><i class="fas fa-check-circle"></i> Strategic Thinking</div>
+                            <div><i class="fas fa-check-circle"></i> Data Analytics</div>
+                            <div><i class="fas fa-check-circle"></i> Communication</div>
+                            <div><i class="fas fa-check-circle"></i> Leadership</div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h4><i class="fas fa-laptop"></i> Technical Tools</h4>
+                        <div class="skill-list">
+                            <div><i class="fas fa-check-circle"></i> MS Excel (Advanced)</div>
+                            <div><i class="fas fa-check-circle"></i> PowerPoint (Advanced)</div>
+                            <div><i class="fas fa-check-circle"></i> Financial Modeling</div>
+                            <div><i class="fas fa-check-circle"></i> Data Visualization</div>
+                            <div><i class="fas fa-check-circle"></i> Audit Tools</div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h4><i class="fas fa-globe"></i> Languages</h4>
+                        <div class="skill-list">
+                            <div><i class="fas fa-check-circle"></i> English (Fluent)</div>
+                            <div><i class="fas fa-check-circle"></i> Telugu (Native)</div>
+                            <div><i class="fas fa-check-circle"></i> Kannada (Proficient)</div>
+                            <div><i class="fas fa-check-circle"></i> Hindi (Intermediate)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership & Awards -->
+            <div class="section award-container">
+                <h2 class="section-title">
+                    <i class="fas fa-trophy"></i> Leadership & Recognition
+                </h2>
+                <div class="award-grid">
+                    <div class="award-card">
+                        <div class="award-icon">🏆</div>
+                        <div class="award-text">
+                            <strong>Kudos Award</strong><br>
+                            <small>KPMG - Exceptional Performance</small>
+                        </div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon">🎖️</div>
+                        <div class="award-text">
+                            <strong>Prathibha Medal</strong><br>
+                            <small>Chief Minister - Academic Excellence</small>
+                        </div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon">⭐</div>
+                        <div class="award-text">
+                            <strong>ICAI Scholarship</strong><br>
+                            <small>Institute of Chartered Accountants</small>
+                        </div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon">🥇</div>
+                        <div class="award-text">
+                            <strong>K.C. Khanna Award</strong><br>
+                            <small>ICAI Board of Studies</small>
+                        </div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon">🎯</div>
+                        <div class="award-text">
+                            <strong>Event Leadership</strong><br>
+                            <small>1,000+ participants, 40% growth</small>
+                        </div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon">🗣️</div>
+                        <div class="award-text">
+                            <strong>Public Speaking</strong><br>
+                            <small>Multiple SICASA Competition Wins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Impact Visualizations -->
+            <div class="section charts-section">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-bar"></i> Impact & Performance
+                </h2>
+                <div class="charts-container">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">Academic Progression</div>
+                        <canvas id="academicChart"></canvas>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="chart-title">Impact Metrics</div>
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="chart-title">Skill Proficiency Matrix</div>
+                        <canvas id="skillChart"></canvas>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="chart-title">Client Portfolio</div>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <p><strong>Shiva Shankar V</strong> | Chartered Accountant | Consulting & Strategy Focus</p>
+                <div class="footer-divider"></div>
+                <p>📧 <a href="mailto:shivashankar.valmiki@gmail.com">shivashankar.valmiki@gmail.com</a> | 📱 +91 9071020254 | 🔗 <a href="https://www.linkedin.com/in/-vss/" target="_blank">LinkedIn Profile</a></p>
+                <p style="font-size: 0.9em; margin-top: 15px; opacity: 0.9;">© 2025 | Premium Professional Portfolio | ATS-Optimized & Print-Ready</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart Configuration -->
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scrollIndicator').style.width = scrollPercentage + '%';
+        });
+
+        // Chart Colors
+        const chartColors = {
+            primary: '#00d4ff',
+            primaryDark: '#06b6d4',
+            secondary: '#a855f7',
+            tertiary: '#84cc16',
+            quaternary: '#10b981',
+        };
+
+        // Academic Chart
+        new Chart(document.getElementById('academicChart'), {
+            type: 'line',
+            data: {
+                labels: ['Class X', 'Class XII', 'CA Foundation', 'CA Inter', 'B.Com', 'CA Final'],
+                datasets: [{
+                    label: 'Score %',
+                    data: [93.33, 97.50, 79.50, 55.86, 67.33, 55.50],
+                    borderColor: chartColors.primary,
+                    backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 7,
+                    pointBackgroundColor: chartColors.primary,
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 3,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, max: 100 } }
+            }
+        });
+
+        // Impact Chart
+        new Chart(document.getElementById('impactChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Quality', 'Efficiency', 'Training', 'Testing Reduction'],
+                datasets: [{
+                    label: 'Impact %',
+                    data: [50, 40, 100, 20],
+                    backgroundColor: [
+                        chartColors.primary,
+                        chartColors.secondary,
+                        chartColors.tertiary,
+                        chartColors.quaternary
+                    ],
+                    borderRadius: 8,
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { x: { beginAtZero: true } }
+            }
+        });
+
+        // Skill Chart - UPDATED WITH PROBLEM-SOLVING
+        new Chart(document.getElementById('skillChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Excel', 'Audits', 'Analysis', 'Problem-Solving', 'Communication', 'Leadership'],
+                datasets: [{
+                    label: 'Proficiency',
+                    data: [95, 90, 85, 92, 88, 80],
+                    borderColor: chartColors.primary,
+                    backgroundColor: 'rgba(0, 212, 255, 0.15)',
+                    borderWidth: 3,
+                    pointBackgroundColor: chartColors.primary,
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { r: { beginAtZero: true, max: 100 } }
+            }
+        });
+
+        // Revenue Chart
+        new Chart(document.getElementById('revenueChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Unilever', 'Other Clients', 'Manipal', 'Telecom', 'F&B'],
+                datasets: [{
+                    data: [60000, 50000, 5000, 400, 700],
+                    backgroundColor: [
+                        chartColors.primary,
+                        chartColors.secondary,
+                        chartColors.tertiary,
+                        chartColors.quaternary,
+                        '#f59e0b',
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+    </script>
+</body>
+</html>
