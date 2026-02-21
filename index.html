@@ -1,1602 +1,500 @@
-<!-- Download HTML button (paste into your index.html) -->
-<a 
-  href="https://raw.githubusercontent.com/shivashankarvalmiki-hue/Visualized-Profile-Resume/main/index.html" 
-  download="Shiva_Shankar_Visualized_Resume.html"
-  style="
-    display:inline-block;
-    padding:10px 18px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:700;
-    background:linear-gradient(135deg,#00d4ff,#a855f7);
-    color:white;
-    box-shadow:0 6px 18px rgba(0,0,0,0.12);
-    margin:12px 0;
-  "
->
-  ⬇ Download HTML Version
-</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiva Shankar V - Premium Consulting Resume Portfolio</title>
+    <title>Shiva Shankar V | Premium Consulting Profile</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* Premium Consulting Palette */
-            --primary-dark: #0a1f44;
-            --primary: #1a3a6e;
-            --primary-light: #2d5a9f;
-            --accent-cyan: #00d4ff;
-            --accent-purple: #a855f7;
-            --accent-lime: #84cc16;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --bg-dark: #0f1419;
-            --bg-gray: #1a1d23;
-            --bg-light: #f8fafc;
-            --text-dark: #0f1419;
-            --text-light: #e2e8f0;
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
-            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.25);
-            --glow-cyan: 0 0 30px rgba(0, 212, 255, 0.3);
-            --glow-purple: 0 0 30px rgba(168, 85, 247, 0.3);
+            /* BCG Strategy Palette */
+            --primary-dark: #05261e;
+            --primary: #0a3b2c;
+            --primary-light: #007a53;
+            --accent-main: #00A36C; 
+            --accent-secondary: #115740;
+            --accent-light: #4ade80;
+            
+            --bg-dark: #121212;
+            --bg-gray: #1e1e1e;
+            --bg-light: #f4f7f6;
+            --text-dark: #1f2937;
+            --text-light: #e5e7eb;
+            
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
-            padding: 0;
-            margin: 0;
+            background: var(--bg-light);
             transition: all 0.3s ease;
         }
 
         body.dark-mode {
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-gray) 100%);
+            background: var(--bg-dark);
             color: var(--text-light);
         }
 
         .container {
-            max-width: 1600px;
-            margin: 0 auto;
+            max-width: 1400px;
+            margin: 40px auto;
             background: white;
             box-shadow: var(--shadow-xl);
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s ease;
-            backdrop-filter: blur(20px);
         }
 
         body.dark-mode .container {
-            background: linear-gradient(135deg, rgba(15, 20, 25, 0.95) 0%, rgba(26, 29, 35, 0.95) 100%);
-            border: 1px solid rgba(168, 85, 247, 0.1);
+            background: var(--bg-gray);
+            border: 1px solid rgba(0, 163, 108, 0.2);
         }
 
-        /* ===== ANIMATED BACKGROUND ===== */
+        /* ===== BACKGROUND BLOBS ===== */
         .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
-            overflow: hidden;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; overflow: hidden; background: var(--bg-light);
         }
-
-        body.dark-mode .animated-bg {
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-gray) 100%);
-        }
-
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.15;
-            mix-blend-mode: multiply;
-            animation: blob 8s ease-in-out infinite;
-        }
-
-        .blob1 {
-            width: 400px;
-            height: 400px;
-            background: var(--accent-cyan);
-            top: 0;
-            left: -100px;
-            animation-delay: 0s;
-        }
-
-        .blob2 {
-            width: 350px;
-            height: 350px;
-            background: var(--accent-purple);
-            top: 200px;
-            right: -100px;
-            animation-delay: 2s;
-        }
-
-        .blob3 {
-            width: 300px;
-            height: 300px;
-            background: var(--accent-lime);
-            bottom: 0;
-            left: 50%;
-            animation-delay: 4s;
-        }
+        body.dark-mode .animated-bg { background: var(--bg-dark); }
+        
+        .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.1; animation: blob 10s ease-in-out infinite; }
+        .blob1 { width: 400px; height: 400px; background: var(--accent-main); top: -100px; left: -100px; }
+        .blob2 { width: 350px; height: 350px; background: var(--primary-light); bottom: -100px; right: -100px; animation-delay: 2s; }
 
         @keyframes blob {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
+            50% { transform: translate(30px, 30px) scale(1.1); }
         }
 
-        /* ===== SCROLL INDICATOR ===== */
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-lime), var(--accent-cyan));
-            background-size: 200% 100%;
-            width: 0%;
-            z-index: 999;
-            transition: width 0.1s ease;
-            animation: gradientFlow 3s ease infinite;
+        /* ===== CONTROLS ===== */
+        .theme-toggle, .export-btn {
+            position: fixed; z-index: 1000; cursor: pointer; border: none; font-weight: 600; transition: all 0.3s ease;
         }
-
-        @keyframes gradientFlow {
-            0%, 100% { background-position: 0% center; }
-            50% { background-position: 100% center; }
-        }
-
-        /* ===== THEME TOGGLE ===== */
         .theme-toggle {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid var(--accent-cyan);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-            color: var(--accent-cyan);
+            top: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%;
+            background: white; color: var(--primary); box-shadow: var(--shadow-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
         }
-
-        .theme-toggle:hover {
-            transform: scale(1.15) rotate(20deg);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
-        }
-
-        body.dark-mode .theme-toggle {
-            background: rgba(26, 29, 35, 0.95);
-            border-color: var(--accent-purple);
-            color: var(--accent-purple);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
-        }
-
-        body.dark-mode .theme-toggle:hover {
-            box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
-        }
-
-        /* ===== EXPORT BUTTON ===== */
         .export-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 999;
-            font-size: 1em;
-            letter-spacing: 0.5px;
+            bottom: 30px; right: 30px; padding: 12px 24px; border-radius: 30px;
+            background: var(--primary); color: white; box-shadow: var(--shadow-md);
+            display: flex; align-items: center; gap: 8px;
         }
-
-        .export-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 50px rgba(0, 212, 255, 0.6), 0 10px 30px rgba(168, 85, 247, 0.3);
-        }
-
-        .export-btn:active {
-            transform: translateY(-2px);
-        }
+        .theme-toggle:hover, .export-btn:hover { transform: translateY(-3px); background: var(--accent-main); color: white;}
+        body.dark-mode .theme-toggle { background: #333; color: var(--accent-main); }
 
         /* ===== HEADER ===== */
         .header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
-            color: white;
-            padding: 100px 50px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 3px solid var(--accent-cyan);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white; padding: 80px 50px; text-align: center; border-bottom: 4px solid var(--accent-main);
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-            opacity: 0.5;
-        }
+        .header h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 10px; letter-spacing: -1px; }
+        .header-subtitle { font-size: 1.2rem; font-weight: 300; opacity: 0.9; margin-bottom: 25px; }
+        
+        .contact-info { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-item { background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; text-decoration: none; color: white; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .contact-item:hover { background: var(--accent-main); }
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            right: -50%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: floatAnimation 6s ease-in-out infinite;
+        /* SPIKE BANNER */
+        .spike-banner {
+            background: var(--accent-main); color: white; padding: 20px 40px; text-align: center;
+            font-weight: 500; font-size: 1.05rem; display: flex; justify-content: center; align-items: center; gap: 15px;
         }
-
-        @keyframes floatAnimation {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-20px, -20px) scale(1.1); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .designation-badge {
-            display: inline-block;
-            background: rgba(0, 212, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-size: 0.9em;
-            margin-bottom: 25px;
-            border: 2px solid var(--accent-cyan);
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            animation: slideInDown 0.8s ease;
-        }
-
-        .header h1 {
-            font-size: 4em;
-            margin-bottom: 15px;
-            font-weight: 800;
-            letter-spacing: -2px;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: slideInDown 0.8s ease 0.2s both;
-            background: linear-gradient(135deg, white 0%, rgba(0, 212, 255, 0.8) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header-subtitle {
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            opacity: 0.95;
-            font-weight: 500;
-            animation: slideInDown 0.8s ease 0.4s both;
-            letter-spacing: 0.5px;
-        }
-
-        .consulting-highlight {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-lime), var(--accent-cyan));
-            padding: 3px 10px;
-            border-radius: 6px;
-            margin: 0 5px;
-            font-weight: 700;
-            font-size: 0.95em;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 15px;
-            margin-top: 30px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (max-width: 900px) {
-            .contact-info {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: white;
-            text-decoration: none;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            padding: 12px 18px;
-            border-radius: 10px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            font-weight: 600;
-            animation: slideInDown 0.8s ease 0.6s both;
-            word-break: break-all;
-        }
-
-        .contact-item:hover {
-            background: rgba(0, 212, 255, 0.25);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
-        }
-
-        .contact-item i {
-            font-size: 1.2em;
-            flex-shrink: 0;
-        }
+        .spike-badge { background: white; color: var(--accent-main); padding: 4px 10px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
 
         /* ===== MAIN CONTENT ===== */
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            padding: 80px 50px;
+        .content { padding: 60px 50px; }
+        
+        /* EXECUTIVE SUMMARY */
+        .exec-summary {
+            background: rgba(0, 163, 108, 0.05); border-left: 4px solid var(--accent-main);
+            padding: 25px 35px; border-radius: 0 12px 12px 0; margin-bottom: 50px;
+            font-size: 1.1rem; line-height: 1.7; color: var(--primary-dark);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
+        body.dark-mode .exec-summary { background: #2a2a2a; color: #e5e7eb; border-color: var(--accent-main); }
+        .exec-summary strong { color: var(--primary); }
+        body.dark-mode .exec-summary strong { color: var(--accent-main); }
 
-        @media (max-width: 1024px) {
-            .content {
-                grid-template-columns: 1fr;
-                padding: 50px 40px;
-                gap: 40px;
-            }
-        }
-
-        /* ===== STATS CONTAINER ===== */
-        .stats-container {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-            animation: fadeInUp 0.8s ease 0.3s both;
-        }
-
-        .stat-box {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-            padding: 35px 25px;
-            border-radius: 16px;
-            text-align: center;
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .stat-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: backgroundMove 15s linear infinite;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
-        }
-
-        .stat-number {
-            font-size: 2.8em;
-            font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 1;
-        }
-
-        .stat-label {
-            font-size: 1em;
-            font-weight: 600;
-            color: var(--primary);
-            position: relative;
-            z-index: 1;
-            letter-spacing: 0.3px;
-        }
-
-        body.dark-mode .stat-label {
-            color: var(--text-light);
-        }
-
-        /* ===== SECTION TITLES ===== */
-        .section {
-            margin-bottom: 50px;
-            animation: fadeInUp 0.8s ease;
-        }
-
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        
         .section-title {
-            font-size: 1.9em;
-            color: var(--primary);
-            border-bottom: 3px solid transparent;
-            border-image: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)) 1;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: relative;
+            font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary);
+            border-bottom: 2px solid var(--accent-main); padding-bottom: 10px; margin-bottom: 30px;
+            display: flex; align-items: center; gap: 12px; margin-top: 20px;
         }
+        body.dark-mode .section-title { color: white; }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--accent-cyan);
-            animation: expandWidth 0.6s ease forwards;
+        /* ===== CARDS ===== */
+        .card {
+            background: rgba(0, 163, 108, 0.03); border: 1px solid rgba(0, 163, 108, 0.1);
+            padding: 25px; border-radius: 12px; transition: 0.3s; margin-bottom: 20px;
         }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--accent-main); }
+        body.dark-mode .card { background: #2a2a2a; border-color: #333; }
+        
+        .card h4 { color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        body.dark-mode .card h4 { color: var(--accent-main); }
 
-        @keyframes expandWidth {
-            to { width: 100%; }
-        }
+        .list-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; font-size: 0.95rem; }
+        .list-item i { color: var(--accent-main); margin-top: 4px; }
 
-        body.dark-mode .section-title {
-            color: var(--text-light);
-        }
-
-        .section-title i {
-            font-size: 1.4em;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        /* ===== TIMELINE ===== */
-        .timeline {
-            position: relative;
-            padding-left: 50px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple), var(--accent-lime));
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            margin-bottom: 40px;
-            position: relative;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-            padding: 30px;
-            border-radius: 16px;
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
+        /* ===== TIMELINE (PROFESSIONAL EXPERIENCE) ===== */
+        .timeline { border-left: 3px solid var(--accent-main); padding-left: 30px; margin-left: 15px; margin-bottom: 50px;}
+        .timeline-item { position: relative; margin-bottom: 40px; }
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -40px;
-            top: 35px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            border: 4px solid white;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            content: ''; position: absolute; left: -41px; top: 0; width: 18px; height: 18px; 
+            border-radius: 50%; background: var(--bg-light); border: 4px solid var(--accent-main);
+            transition: 0.3s;
         }
+        body.dark-mode .timeline-item::before { background: var(--bg-dark); }
+        .timeline-item:hover::before { background: var(--accent-main); box-shadow: 0 0 10px var(--accent-main); }
+        
+        .timeline-date { font-weight: 700; color: var(--accent-main); font-size: 0.9rem; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .timeline-title { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+        body.dark-mode .timeline-title { color: white; }
+        .timeline-company { font-weight: 600; margin-bottom: 15px; font-size: 1.05rem; color: #555; }
+        body.dark-mode .timeline-company { color: #aaa; }
+        
+        .timeline-content { background: rgba(0, 163, 108, 0.02); padding: 20px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); }
+        body.dark-mode .timeline-content { background: rgba(255,255,255,0.02); border-color: #333; }
+        .timeline-content .list-item i { color: var(--primary-light); }
 
-        body.dark-mode .timeline-item::before {
-            border-color: var(--bg-gray);
+        /* ===== LEADERSHIP & RECOGNITION ===== */
+        .award-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px;}
+        .award-card { 
+            display: flex; align-items: center; gap: 15px; background: rgba(0, 163, 108, 0.05); 
+            padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-main); transition: 0.3s;
         }
-
-        .timeline-item:hover {
-            transform: translateX(15px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
-        }
-
-        .timeline-title {
-            font-size: 1.3em;
-            color: var(--primary);
-            font-weight: 800;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        body.dark-mode .timeline-title {
-            color: var(--accent-cyan);
-        }
-
-        .timeline-date {
-            font-size: 0.9em;
-            color: #7f8c8d;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-        }
-
-        .timeline-bullet {
-            margin: 10px 0;
-            font-size: 0.95em;
-            line-height: 1.7;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .timeline-bullet::before {
-            content: '→';
-            color: var(--accent-cyan);
-            font-weight: bold;
-            font-size: 1.3em;
-            flex-shrink: 0;
-        }
-
-        .metric {
-            color: var(--accent-lime);
-            font-weight: 800;
-            background: rgba(132, 204, 22, 0.15);
-            padding: 3px 8px;
-            border-radius: 5px;
-            border-left: 3px solid var(--accent-lime);
-            display: inline;
-        }
-
-        .highlight {
-            color: var(--accent-cyan);
-            font-weight: 800;
-        }
+        .award-card:hover { transform: translateX(5px); background: rgba(0, 163, 108, 0.1); }
+        body.dark-mode .award-card { background: #2a2a2a; border-color: var(--accent-main); }
+        .award-icon { font-size: 2rem; color: var(--primary); width: 40px; text-align: center;}
+        body.dark-mode .award-icon { color: var(--accent-main); }
+        .award-text h5 { font-size: 1.05rem; color: var(--primary); margin-bottom: 3px; }
+        body.dark-mode .award-text h5 { color: white; }
+        .award-text p { font-size: 0.85rem; color: #666; margin: 0; }
+        body.dark-mode .award-text p { color: #aaa; }
 
         /* ===== ACADEMIC TABLE ===== */
-        .table-wrapper {
-            overflow-x: auto;
-            border-radius: 12px;
-            border: 2px solid rgba(0, 212, 255, 0.2);
+        .table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 50px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: var(--primary); color: white; padding: 15px; text-align: left; font-weight: 600; }
+        td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        body.dark-mode td { border-color: #333; }
+        .highlight-badge { background: var(--accent-main); color: white; padding: 4px 10px; border-radius: 12px; font-weight: 600; font-size: 0.85rem; }
+
+        /* ===== CHARTS SECTION ===== */
+        .charts-container { display: grid; grid-template-columns: 1.3fr 1fr 0.7fr; gap: 30px; margin-top: 30px; align-items: center;}
+        .chart-wrapper { background: rgba(0,0,0,0.02); padding: 25px; border-radius: 12px; border: 1px solid #eaeaea; }
+        body.dark-mode .chart-wrapper { background: #2a2a2a; border-color: #333; }
+        .chart-title { text-align: center; font-weight: 600; margin-bottom: 20px; color: var(--primary); font-size: 1rem; }
+        body.dark-mode .chart-title { color: white; }
+
+        /* Media Queries */
+        @media (max-width: 1100px) {
+            .charts-container { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         }
-
-        .academic-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
+        @media (max-width: 900px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .header { padding: 50px 20px; }
+            .content { padding: 40px 20px; }
+            .timeline { padding-left: 20px; }
+            .exec-summary { padding: 20px; font-size: 1rem; }
         }
-
-        body.dark-mode .academic-table {
-            background: var(--bg-gray);
-        }
-
-        .academic-table thead {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
-            color: white;
-        }
-
-        .academic-table th {
-            padding: 16px;
-            text-align: left;
-            font-weight: 800;
-            font-size: 0.95em;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .academic-table th:nth-child(1) {
-            min-width: 120px;
-        }
-
-        .academic-table th:nth-child(2) {
-            min-width: 150px;
-        }
-
-        .academic-table th:nth-child(3) {
-            min-width: 180px;
-        }
-
-        .academic-table th:nth-child(4) {
-            min-width: 100px;
-        }
-
-        .academic-table th:nth-child(5) {
-            min-width: 220px;
-        }
-
-        .academic-table td {
-            padding: 16px;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-            font-size: 0.95em;
-        }
-
-        body.dark-mode .academic-table td {
-            border-color: rgba(168, 85, 247, 0.2);
-        }
-
-        .academic-table tbody tr {
-            transition: all 0.3s ease;
-        }
-
-        .academic-table tbody tr:hover {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-            transform: scale(1.01);
-        }
-
-        .rank-badge, .distinction-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .rank-badge {
-            background: linear-gradient(135deg, var(--accent-lime), #65a30d);
-            color: white;
-            box-shadow: 0 4px 15px rgba(132, 204, 22, 0.4);
-        }
-
-        .distinction-badge {
-            background: linear-gradient(135deg, var(--accent-cyan), #06b6d4);
-            color: white;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
-        }
-
-        /* ===== SKILLS SECTION ===== */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        @media (max-width: 768px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .skill-card {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
-            padding: 25px;
-            border-radius: 14px;
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            animation: backgroundMove 20s linear infinite;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%);
-        }
-
-        .skill-card h4 {
-            color: var(--primary);
-            margin-bottom: 16px;
-            font-size: 1.2em;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-            z-index: 1;
-            letter-spacing: 0.5px;
-        }
-
-        body.dark-mode .skill-card h4 {
-            color: var(--accent-cyan);
-        }
-
-        .skill-list {
-            font-size: 0.95em;
-            line-height: 2.2;
-            color: var(--text-dark);
-            position: relative;
-            z-index: 1;
-        }
-
-        body.dark-mode .skill-list {
-            color: var(--text-light);
-        }
-
-        .skill-list div {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .skill-list div:hover {
-            transform: translateX(5px);
-        }
-
-        .skill-list i {
-            color: var(--accent-lime);
-            font-size: 0.9em;
-        }
-
-        /* ===== AWARDS SECTION ===== */
-        .award-container {
-            grid-column: 1 / -1;
-        }
-
-        .award-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        @media (max-width: 768px) {
-            .award-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .award-card {
-            background: linear-gradient(135deg, rgba(132, 204, 22, 0.08) 0%, rgba(0, 212, 255, 0.08) 100%);
-            padding: 25px;
-            border-radius: 14px;
-            border-left: 4px solid var(--accent-lime);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .award-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(132, 204, 22, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: backgroundMove 25s linear infinite;
-        }
-
-        .award-card:hover {
-            transform: translateY(-8px) translateX(5px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
-            background: linear-gradient(135deg, rgba(132, 204, 22, 0.15) 0%, rgba(0, 212, 255, 0.1) 100%);
-        }
-
-        .award-icon {
-            font-size: 2.5em;
-            flex-shrink: 0;
-            filter: drop-shadow(0 0 10px rgba(132, 204, 22, 0.3));
-        }
-
-        .award-text {
-            font-size: 0.95em;
-            color: var(--text-dark);
-            position: relative;
-            z-index: 1;
-        }
-
-        body.dark-mode .award-text {
-            color: var(--text-light);
-        }
-
-        .award-text strong {
-            color: var(--accent-lime);
-            font-weight: 800;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .award-text small {
-            opacity: 0.8;
-            font-size: 0.85em;
-        }
-
-        /* ===== CHARTS CONTAINER ===== */
-        .charts-section {
-            grid-column: 1 / -1;
-            margin-top: 80px;
-            padding-top: 80px;
-            border-top: 3px solid transparent;
-            border-image: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)) 1;
-        }
-
-        .charts-container {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 35px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 1024px) {
-            .charts-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .chart-wrapper {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-            padding: 30px;
-            border-radius: 16px;
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .chart-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            animation: backgroundMove 30s linear infinite;
-        }
-
-        .chart-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-lime), var(--accent-cyan));
-            background-size: 200% 100%;
-            animation: gradientFlow 3s ease infinite;
-        }
-
-        .chart-wrapper:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
-        }
-
-        .chart-title {
-            text-align: center;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 25px;
-            font-size: 1.15em;
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 1;
-            text-transform: uppercase;
-        }
-
-        body.dark-mode .chart-title {
-            color: var(--accent-cyan);
-        }
-
-        canvas {
-            max-width: 100%;
-            height: auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
-            color: white;
-            text-align: center;
-            padding: 40px;
-            font-size: 0.95em;
-            border-top: 3px solid var(--accent-cyan);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-        }
-
-        .footer-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer p {
-            margin: 8px 0;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-
-        .footer-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            margin: 15px 0;
-        }
-
-        .footer a {
-            color: var(--accent-lime);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes backgroundMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(60px, 60px); }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .header {
-                padding: 60px 25px;
-            }
-
-            .header h1 {
-                font-size: 2.5em;
-            }
-
-            .header-subtitle {
-                font-size: 1.1em;
-            }
-
-            .content {
-                padding: 40px 20px;
-                gap: 30px;
-            }
-
-            .theme-toggle {
-                width: 50px;
-                height: 50px;
-                top: 20px;
-                right: 20px;
-                font-size: 1.2em;
-            }
-
-            .export-btn {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 24px;
-                font-size: 0.9em;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ===== PRINT STYLES ===== */
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-
-            .animated-bg,
-            .theme-toggle,
-            .export-btn,
-            .scroll-indicator {
-                display: none;
-            }
-
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-
-            * {
-                box-shadow: none !important;
-            }
-        }
-
-        /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-light);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            border-radius: 6px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-lime));
-        }
-
-        body.dark-mode ::-webkit-scrollbar-track {
-            background: var(--bg-gray);
+            .theme-toggle, .export-btn, .animated-bg { display: none; }
+            body, .container { background: white; box-shadow: none; margin: 0; padding: 0; }
+            * { color: black !important; }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
+
     <div class="animated-bg">
         <div class="blob blob1"></div>
         <div class="blob blob2"></div>
-        <div class="blob blob3"></div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator" id="scrollIndicator"></div>
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+    <button class="export-btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Export PDF</button>
 
-    <!-- Theme Toggle -->
-    <div class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
-        <i class="fas fa-moon"></i>
-    </div>
-
-    <!-- Export Button -->
-    <button class="export-btn" onclick="window.print()" title="Export as PDF">
-        <i class="fas fa-download"></i> Export PDF
-    </button>
-
-    <!-- Main Container -->
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <div class="header-content">
-                <div class="designation-badge">
-                    <i class="fas fa-briefcase"></i> Chartered Accountant & Consulting Candidate
-                </div>
-                <h1>SHIVA SHANKAR V</h1>
-                <p class="header-subtitle">
-                    Strategic Financial Analysis | <span class="consulting-highlight">Audit Excellence</span> | Problem-Solving
-                </p>
-                <div class="contact-info">
-                    <a href="mailto:shivashankar.valmiki@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i> shivashankar.valmiki@gmail.com
-                    </a>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i> +91 9071020254
-                    </div>
-                    <a href="https://www.linkedin.com/in/-vss/" target="_blank" rel="noopener noreferrer" class="contact-item">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                </div>
+            <h1>SHIVA SHANKAR V</h1>
+            <div class="header-subtitle">Chartered Accountant (AIR 12) | Associate Management Consultant Candidate</div>
+            <div class="contact-info">
+                <a href="mailto:shivashankar.valmiki@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> shivashankar.valmiki@gmail.com</a>
+                <span class="contact-item"><i class="fas fa-phone"></i> +91 9071020254</span>
+                <a href="https://linkedin.com/in/-vss" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
 
-        <!-- Main Content -->
+        <div class="spike-banner">
+            <span class="spike-badge">Digital Creativity Spike</span>
+            Designed & deployed this interactive HTML resume, demonstrating analytical visualization, UI/UX, and product-oriented thinking.
+        </div>
+
         <div class="content">
-            <!-- Stats -->
-            <div class="stats-container">
-                <div class="stat-box">
-                    <div class="stat-number">2+</div>
-                    <div class="stat-label">Professional Years</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Audit Engagements</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">₹3000+</div>
-                    <div class="stat-label">Cr Revenue Exposure</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Certifications</div>
-                </div>
+
+            <div class="exec-summary">
+                Chartered Accountant with a proven track record in rigorous financial analysis and strategic advisory across <strong>EY-Parthenon</strong> and <strong>KPMG</strong>. I specialize in synthesizing complex datasets, identifying critical value drivers (impacting deal valuations by up to 15%), and steering high-stakes engagements for sector-leading clients. Combining this deep quantitative foundation with strategic problem-solving frameworks acquired through the <strong>McKinsey Forward Program</strong>, I am uniquely positioned to translate financial scrutiny into actionable, high-level business strategy as an Associate Management Consultant.
             </div>
 
-            <!-- Academic Qualifications -->
-            <div class="section full-width">
-                <h2 class="section-title">
-                    <i class="fas fa-graduation-cap"></i> Academic Excellence
-                </h2>
-                <div class="table-wrapper">
-                    <table class="academic-table">
-                        <thead>
-                            <tr>
-                                <th>Year</th>
-                                <th>Examination</th>
-                                <th>Institute</th>
-                                <th>Score</th>
-                                <th>Recognition</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Sep 2025 & Nov 2024</td>
-                                <td><strong>CA Final</strong></td>
-                                <td>ICAI</td>
-                                <td><strong>55.50%</strong></td>
-                                <td>2 exemptions & 50+ in 5 subjects</td>
-                            </tr>
-                            <tr>
-                                <td>Nov 2019</td>
-                                <td><strong>CA Inter</strong></td>
-                                <td>ICAI</td>
-                                <td><strong>55.86%</strong></td>
-                                <td><span class="rank-badge">All India Rank 12</span></td>
-                            </tr>
-                            <tr>
-                                <td>June 2016</td>
-                                <td><strong>CA Foundation</strong></td>
-                                <td>ICAI</td>
-                                <td><strong>79.50%</strong></td>
-                                <td><span class="distinction-badge">Distinction</span></td>
-                            </tr>
-                            <tr>
-                                <td>2024</td>
-                                <td><strong>B.Com</strong></td>
-                                <td>IGNOU</td>
-                                <td><strong>67.33%</strong></td>
-                                <td>First Division</td>
-                            </tr>
-                            <tr>
-                                <td>2016</td>
-                                <td><strong>Class XII</strong></td>
-                                <td>LRG Naidu Jr College</td>
-                                <td><strong>97.50%</strong></td>
-                                <td><span class="rank-badge">State Rank 3 - Prathibha Medal</span></td>
-                            </tr>
-                            <tr>
-                                <td>2014</td>
-                                <td><strong>Class X</strong></td>
-                                <td>Sri Balaji Vidya Vihar</td>
-                                <td><strong>93.33%</strong></td>
-                                <td><span class="rank-badge">District Rank 1</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Professional Timeline -->
-            <div class="section full-width">
-                <h2 class="section-title">
-                    <i class="fas fa-chart-line"></i> Professional Journey
-                </h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-title">Post-Articleship: Statutory Audit Executive</div>
-                        <div class="timeline-date">
-                            <i class="fas fa-calendar-alt"></i> Mar 2023 – Jan 2025 | KPMG (BSR & Associates), Bangalore
-                        </div>
-                        <div class="timeline-bullet">
-                            Led end-to-end execution of Agreed-Upon Procedures for <span class="highlight">Unilever group</span> (<span class="metric">₹60,000+ Cr</span>), securing <span class="metric">100% completion</span> and partner sign-off.
-                        </div>
-                        <div class="timeline-bullet">
-                            Improved team quality <span class="metric">by 50%</span> through training <span class="metric">15+ members</span> on audit protocols.
-                        </div>
-                        <div class="timeline-bullet">
-                            Delivered <span class="metric">10% quality improvement</span> via structured feedback mechanisms.
-                        </div>
-                        <div class="timeline-bullet">
-                            Enhanced control efficiency for <span class="highlight">Manipal Hospitals</span>, <span class="highlight">JLL</span>, <span class="highlight">RMZ Pvt Ltd</span>, reducing testing <span class="metric">by 20%</span>.
-                        </div>
-                        <div class="timeline-bullet">
-                            Recipient of <span class="highlight">Kudos Award</span> for exceptional Unilever engagement performance.
-                        </div>
-                        <div class="timeline-bullet">
-                            Strengthened analytical decision-making through variance analysis and financial trend identification.
-                        </div>
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2026 - Present</div>
+                    <div class="timeline-title">Assistant Manager - Transaction Advisory Services (FDD)</div>
+                    <div class="timeline-company">EY-Parthenon | Strategy and Transactions</div>
+                    <div class="timeline-content">
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Conducted deep-dive analysis of historical and projected financial statements to identify non-recurring adjustments impacting deal valuation by <strong>10 to 15 percent</strong>.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Synthesized large-scale transaction datasets using <strong>Alteryx</strong> to build comprehensive FDD databooks.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Identified critical Debt-like items including unfunded pension liabilities and aged payables.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Collaborated seamlessly across tax and legal teams to provide an integrated "one-firm" view of transaction risks.</div>
                     </div>
+                </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-title">Articleship: Statutory Audit Staff Accountant</div>
-                        <div class="timeline-date">
-                            <i class="fas fa-calendar-alt"></i> Mar 2020 – Mar 2023 | KPMG (BSR & Associates), Bangalore
-                        </div>
-                        <div class="timeline-bullet">
-                            Executed statutory audits for <span class="highlight">listed & unlisted</span> clients across manufacturing & service sectors (<span class="metric">₹100 Cr to ₹3,000+ Cr</span>).
-                        </div>
-                        <div class="timeline-bullet">
-                            Analyzed PE frameworks of <span class="highlight">Fireside Ventures</span> (<span class="metric">₹3,000+ Cr fund</span>), deepening investment thesis expertise.
-                        </div>
-                        <div class="timeline-bullet">
-                            Led e-migration of audit workpapers, enhancing efficiency <span class="metric">by 40%</span> for <span class="metric">₹100+ Cr</span> client.
-                        </div>
-                        <div class="timeline-bullet">
-                            Supported <span class="highlight">Ind AS transition</span> for <span class="metric">₹400 Cr</span> telecom company, achieving <span class="metric">100% accuracy</span>.
-                        </div>
-                        <div class="timeline-bullet">
-                            Handled <span class="highlight">tax audit & CARO</span> compliance for <span class="metric">₹700 Cr</span> food processing entity with zero exceptions.
-                        </div>
-                        <div class="timeline-bullet">
-                            Improved delivery efficiency <span class="metric">by 20%</span> through continuous learning and tool mastery.
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2023 - January 2025</div>
+                    <div class="timeline-title">Audit Executive - Statutory Audit</div>
+                    <div class="timeline-company">KPMG (BSR & Associates)</div>
+                    <div class="timeline-content">
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Led the end-to-end execution of Agreed-Upon Procedures for a leading <strong>FMCG group (INR 60k+ Cr revenue)</strong>, securing 100% completion and partner sign-off.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Trained and supervised 15+ team members, driving an overall delivery quality improvement of <strong>50 percent</strong>.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Reduced turnaround time by <strong>30 percent</strong> through structured problem-solving and proactive issue resolution.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Enhanced control efficiency for key clients across Healthcare and Real Estate sectors, directly reducing substantive testing by <strong>20 percent</strong>.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2020 - March 2023</div>
+                    <div class="timeline-title">Staff Accountant (Articleship) - Statutory Audit</div>
+                    <div class="timeline-company">KPMG (BSR & Associates)</div>
+                    <div class="timeline-content">
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Executed statutory audits for companies across multiple sectors with revenues ranging from INR 100 Cr to INR 60k+ Cr.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Analyzed valuation models and Private Equity frameworks for a top-tier <strong>VC Firm (INR 3k+ Cr fund)</strong>.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Spearheaded the e-migration of audit work papers for a client, improving operational efficiency by <strong>40 percent</strong>.</div>
+                        <div class="list-item"><i class="fas fa-angle-right"></i> Supported full Ind AS 116 transition and compliance for an INR 400 Cr revenue telecom entity.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Consulting Credentials</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4><i class="fas fa-star"></i> Strategic Development</h4>
+                    <div class="list-item"><i class="fas fa-check"></i> <b>McKinsey Forward Program:</b> Certified in structured problem-solving, impact communication, and stakeholder management.</div>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-chart-pie"></i> Strategic Job Simulations</h4>
+                    <div class="list-item"><i class="fas fa-check"></i> <b>Simulations:</b> Completed virtual modules in Strategy Consulting (BCG), Management Consulting (PwC), Investment Banking (JPMorgan), and Private Equity (Vista Equity).</div>
+                </div>
+            </div>
+
+            <h2 class="section-title"><i class="fas fa-layer-group"></i> Core Capabilities</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h4><i class="fas fa-brain"></i> Consulting Skills</h4>
+                    <div class="list-item"><i class="fas fa-angle-right"></i> Problem-Solving & Strategic Thinking</div>
+                    <div class="list-item"><i class="fas fa-angle-right"></i> Data Analytics & Synthesis</div>
+                    <div class="list-item"><i class="fas fa-angle-right"></i> Stakeholder Management & Impact Communication</div>
+                    <div class="list-item"><i class="fas fa-angle-right"></i> Leadership & Cross-functional Collaboration</div>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-laptop-code"></i> Technical Arsenal</h4>
+                    <div class="list-item"><i class="fas fa-angle-right"></i> <b>Advanced Data Synthesis:</b> Alteryx, Power BI, Advanced Excel.</div>
+                    <div class="list-item"><i class="fas fa-angle-right"></i> <b>Financial Rigor:</b> Financial Modeling (DCF), Transaction Advisory, Statutory Audits, Risk Assessment.</div>
+                    <div class="list-item"><i class="fas fa-angle-right"></i> <b>Languages:</b> English (Fluent), Telugu (Native), Kannada (Proficient), Hindi (Intermediate).</div>
+                </div>
+            </div>
+
+            <h2 class="section-title"><i class="fas fa-trophy"></i> Leadership & Recognition</h2>
+            <div class="award-grid">
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-award"></i></div>
+                    <div class="award-text">
+                        <h5>Kudos Award</h5>
+                        <p>KPMG - Exceptional performance on FMCG group engagement (2023).</p>
+                    </div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-medal"></i></div>
+                    <div class="award-text">
+                        <h5>Prathibha Medal</h5>
+                        <p>Awarded by the Chief Minister of Andhra Pradesh for securing State Rank 3 (2016).</p>
+                    </div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-star"></i></div>
+                    <div class="award-text">
+                        <h5>ICAI Honors</h5>
+                        <p>Awarded the ICAI Scholarship and honored with the K C Khanna Award by the Board of Studies (2019).</p>
+                    </div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="award-text">
+                        <h5>CAPS Foundation Coordinator</h5>
+                        <p>Coordinated a donation drive for 100+ homeless individuals and led a blood donation camp achieving a 3x increase.</p>
+                    </div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <div class="award-text">
+                        <h5>Best Presenter & Speaker</h5>
+                        <p>Awarded Best Presenter during GMCS Training (2022) and won multiple public speaking competitions at SICASA (2020).</p>
+                    </div>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-users"></i></div>
+                    <div class="award-text">
+                        <h5>Event Leadership</h5>
+                        <p>Organized a 1,000+ participant college event, strategically managing the budget and increasing participation by 40%.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Consulting Credentials -->
-            <div class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-certificate"></i> Consulting Credentials
-                </h2>
-                <div class="skill-card">
-                    <h4><i class="fas fa-star"></i> McKinsey Forward Program</h4>
-                    <div class="skill-list">
-                        <div><i class="fas fa-check-circle"></i> Problem-solving frameworks</div>
-                        <div><i class="fas fa-check-circle"></i> Impact communication</div>
-                        <div><i class="fas fa-check-circle"></i> Stakeholder management</div>
-                        <div><i class="fas fa-check-circle"></i> Leadership & resilience</div>
-                    </div>
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Academic Excellence</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Examination</th>
+                            <th>Institute</th>
+                            <th>Score / Rank</th>
+                            <th>Key Recognition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CA Final</strong></td>
+                            <td>ICAI</td>
+                            <td>55.50%</td>
+                            <td>2 exemptions & 50+ in 5 subjects</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CA Intermediate</strong></td>
+                            <td>ICAI</td>
+                            <td>55.86%</td>
+                            <td><span class="highlight-badge">All India Rank 12</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CA Foundation</strong></td>
+                            <td>ICAI</td>
+                            <td>79.50%</td>
+                            <td>Cleared with Distinction (First Attempt)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Class XII (HSC)</strong></td>
+                            <td>Andhra Pradesh Board</td>
+                            <td>97.50%</td>
+                            <td><span class="highlight-badge">State Rank 3 (Prathibha Medal)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Class X (SSC)</strong></td>
+                            <td>Andhra Pradesh Board</td>
+                            <td>93.33%</td>
+                            <td><span class="highlight-badge">District Rank 1</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> Impact & Performance Metrics</h2>
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <div class="chart-title">Consulting Proficiency Matrix</div>
+                    <canvas id="skillChart"></canvas>
                 </div>
-                <div class="skill-card" style="margin-top: 20px;">
-                    <h4><i class="fas fa-chart-line"></i> Job Simulations</h4>
-                    <div class="skill-list">
-                        <div><i class="fas fa-check-circle"></i> Strategy Consulting (BCG)</div>
-                        <div><i class="fas fa-check-circle"></i> Management Consulting (PwC)</div>
-                        <div><i class="fas fa-check-circle"></i> Investment Banking (JPMorgan)</div>
-                        <div><i class="fas fa-check-circle"></i> Private Equity (Vista Equity)</div>
-                    </div>
+                <div class="chart-wrapper">
+                    <div class="chart-title">Professional Impact Driven</div>
+                    <canvas id="impactChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <div class="chart-title">Client Portfolio Exposure (Cr)</div>
+                    <canvas id="revenueChart"></canvas>
                 </div>
             </div>
 
-            <!-- Core Skills -->
-            <div class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-lightbulb"></i> Core Capabilities
-                </h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h4><i class="fas fa-briefcase"></i> Technical Expertise</h4>
-                        <div class="skill-list">
-                            <div><i class="fas fa-check-circle"></i> Statutory Audits</div>
-                            <div><i class="fas fa-check-circle"></i> Financial Analysis</div>
-                            <div><i class="fas fa-check-circle"></i> Risk Assessment</div>
-                            <div><i class="fas fa-check-circle"></i> Valuation Models</div>
-                            <div><i class="fas fa-check-circle"></i> Ind AS Expertise</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <h4><i class="fas fa-brain"></i> Consulting Skills</h4>
-                        <div class="skill-list">
-                            <div><i class="fas fa-check-circle"></i> Problem-Solving</div>
-                            <div><i class="fas fa-check-circle"></i> Strategic Thinking</div>
-                            <div><i class="fas fa-check-circle"></i> Data Analytics</div>
-                            <div><i class="fas fa-check-circle"></i> Communication</div>
-                            <div><i class="fas fa-check-circle"></i> Leadership</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <h4><i class="fas fa-laptop"></i> Technical Tools</h4>
-                        <div class="skill-list">
-                            <div><i class="fas fa-check-circle"></i> MS Excel (Advanced)</div>
-                            <div><i class="fas fa-check-circle"></i> PowerPoint (Advanced)</div>
-                            <div><i class="fas fa-check-circle"></i> Financial Modeling</div>
-                            <div><i class="fas fa-check-circle"></i> Data Visualization</div>
-                            <div><i class="fas fa-check-circle"></i> Audit Tools</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <h4><i class="fas fa-globe"></i> Languages</h4>
-                        <div class="skill-list">
-                            <div><i class="fas fa-check-circle"></i> English (Fluent)</div>
-                            <div><i class="fas fa-check-circle"></i> Telugu (Native)</div>
-                            <div><i class="fas fa-check-circle"></i> Kannada (Proficient)</div>
-                            <div><i class="fas fa-check-circle"></i> Hindi (Intermediate)</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Leadership & Awards -->
-            <div class="section award-container">
-                <h2 class="section-title">
-                    <i class="fas fa-trophy"></i> Leadership & Recognition
-                </h2>
-                <div class="award-grid">
-                    <div class="award-card">
-                        <div class="award-icon">🏆</div>
-                        <div class="award-text">
-                            <strong>Kudos Award</strong><br>
-                            <small>KPMG - Exceptional Performance</small>
-                        </div>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-icon">🎖️</div>
-                        <div class="award-text">
-                            <strong>Prathibha Medal</strong><br>
-                            <small>Chief Minister - Academic Excellence</small>
-                        </div>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-icon">⭐</div>
-                        <div class="award-text">
-                            <strong>ICAI Scholarship</strong><br>
-                            <small>Institute of Chartered Accountants</small>
-                        </div>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-icon">🥇</div>
-                        <div class="award-text">
-                            <strong>K.C. Khanna Award</strong><br>
-                            <small>ICAI Board of Studies</small>
-                        </div>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-icon">🎯</div>
-                        <div class="award-text">
-                            <strong>Event Leadership</strong><br>
-                            <small>1,000+ participants, 40% growth</small>
-                        </div>
-                    </div>
-                    <div class="award-card">
-                        <div class="award-icon">🗣️</div>
-                        <div class="award-text">
-                            <strong>Public Speaking</strong><br>
-                            <small>Multiple SICASA Competition Wins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Professional Impact Visualizations -->
-            <div class="section charts-section">
-                <h2 class="section-title">
-                    <i class="fas fa-chart-bar"></i> Impact & Performance
-                </h2>
-                <div class="charts-container">
-                    <div class="chart-wrapper">
-                        <div class="chart-title">Academic Progression</div>
-                        <canvas id="academicChart"></canvas>
-                    </div>
-                    <div class="chart-wrapper">
-                        <div class="chart-title">Impact Metrics</div>
-                        <canvas id="impactChart"></canvas>
-                    </div>
-                    <div class="chart-wrapper">
-                        <div class="chart-title">Skill Proficiency Matrix</div>
-                        <canvas id="skillChart"></canvas>
-                    </div>
-                    <div class="chart-wrapper">
-                        <div class="chart-title">Client Portfolio</div>
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-content">
-                <p><strong>Shiva Shankar V</strong> | Chartered Accountant | Consulting & Strategy Focus</p>
-                <div class="footer-divider"></div>
-                <p>📧 <a href="mailto:shivashankar.valmiki@gmail.com">shivashankar.valmiki@gmail.com</a> | 📱 +91 9071020254 | 🔗 <a href="https://www.linkedin.com/in/-vss/" target="_blank">LinkedIn Profile</a></p>
-                <p style="font-size: 0.9em; margin-top: 15px; opacity: 0.9;">© 2025 | Premium Professional Portfolio | ATS-Optimized & Print-Ready</p>
-            </div>
         </div>
     </div>
 
-    <!-- Chart Configuration -->
     <script>
-        // Theme Management
+        // Theme Logic
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDarkMode);
-            themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
         });
 
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.body.classList.add('dark-mode');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-
-        // Scroll Progress
-        window.addEventListener('scroll', () => {
-            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            document.getElementById('scrollIndicator').style.width = scrollPercentage + '%';
-        });
-
-        // Chart Colors
-        const chartColors = {
-            primary: '#00d4ff',
-            primaryDark: '#06b6d4',
-            secondary: '#a855f7',
-            tertiary: '#84cc16',
-            quaternary: '#10b981',
+        // BCG Chart Palette
+        const colors = {
+            main: '#00A36C',
+            dark: '#0a3b2c',
+            light: '#4ade80',
+            gray: '#115740',
+            accent: '#007a53'
         };
 
-        // Academic Chart
-        new Chart(document.getElementById('academicChart'), {
-            type: 'line',
-            data: {
-                labels: ['Class X', 'Class XII', 'CA Foundation', 'CA Inter', 'B.Com', 'CA Final'],
-                datasets: [{
-                    label: 'Score %',
-                    data: [93.33, 97.50, 79.50, 55.86, 67.33, 55.50],
-                    borderColor: chartColors.primary,
-                    backgroundColor: 'rgba(0, 212, 255, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointRadius: 7,
-                    pointBackgroundColor: chartColors.primary,
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 3,
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, max: 100 } }
-            }
-        });
-
-        // Impact Chart
-        new Chart(document.getElementById('impactChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Quality', 'Efficiency', 'Training', 'Testing Reduction'],
-                datasets: [{
-                    label: 'Impact %',
-                    data: [50, 40, 100, 20],
-                    backgroundColor: [
-                        chartColors.primary,
-                        chartColors.secondary,
-                        chartColors.tertiary,
-                        chartColors.quaternary
-                    ],
-                    borderRadius: 8,
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                plugins: { legend: { display: false } },
-                scales: { x: { beginAtZero: true } }
-            }
-        });
-
-        // Skill Chart - UPDATED WITH PROBLEM-SOLVING
+        // 1. Radar Skill Chart
         new Chart(document.getElementById('skillChart'), {
             type: 'radar',
             data: {
-                labels: ['Excel', 'Audits', 'Analysis', 'Problem-Solving', 'Communication', 'Leadership'],
+                labels: ['Excel/Modeling', 'Statutory Audits', 'Financial Analysis', 'Problem-Solving', 'Communication', 'Leadership', 'Stakeholder Mgmt'],
                 datasets: [{
-                    label: 'Proficiency',
-                    data: [95, 90, 85, 92, 88, 80],
-                    borderColor: chartColors.primary,
-                    backgroundColor: 'rgba(0, 212, 255, 0.15)',
-                    borderWidth: 3,
-                    pointBackgroundColor: chartColors.primary,
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
+                    data: [95, 90, 88, 92, 85, 80, 80],
+                    borderColor: colors.main, backgroundColor: 'rgba(0, 163, 108, 0.2)',
+                    borderWidth: 2, pointBackgroundColor: colors.dark
                 }]
             },
-            options: {
-                responsive: true,
-                plugins: { legend: { display: false } },
-                scales: { r: { beginAtZero: true, max: 100 } }
-            }
+            options: { responsive: true, plugins: { legend: { display: false } }, scales: { r: { min: 0, max: 100 } } }
         });
 
-        // Revenue Chart
+        // 2. Impact Bar Chart
+        new Chart(document.getElementById('impactChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Quality Delivery', 'E-Migration Efficiency', 'Turnaround Time Reduction', 'Substantive testing reduction'],
+                datasets: [{
+                    label: 'Improvement %',
+                    data: [50, 40, 30, 20],
+                    backgroundColor: [colors.main, colors.accent, colors.gray, colors.light],
+                    borderRadius: 6
+                }]
+            },
+            options: { indexAxis: 'y', responsive: true, plugins: { legend: { display: false } } }
+        });
+
+        // 3. Revenue Doughnut Chart
         new Chart(document.getElementById('revenueChart'), {
             type: 'doughnut',
             data: {
-                labels: ['Unilever', 'Other Clients', 'Manipal', 'Telecom', 'F&B'],
+                labels: ['FMCG', 'Healthcare sector', 'VC Firm', 'Real estate', 'Telecom Entity', 'Other Clients'],
                 datasets: [{
-                    data: [60000, 50000, 5000, 400, 700],
-                    backgroundColor: [
-                        chartColors.primary,
-                        chartColors.secondary,
-                        chartColors.tertiary,
-                        chartColors.quaternary,
-                        '#f59e0b',
-                    ],
-                    borderColor: '#fff',
-                    borderWidth: 2,
+                    data: [60000, 5000, 3000, 1000, 400, 50000],
+                    backgroundColor: [colors.dark, colors.main, colors.accent, '#84cc16', colors.light, '#005a3e'],
+                    borderWidth: 0
                 }]
             },
-            options: {
-                responsive: true,
-                plugins: { legend: { position: 'bottom' } }
+            options: { 
+                responsive: true, 
+                plugins: { 
+                    legend: { 
+                        position: 'bottom',
+                        labels: { boxWidth: 12, font: { size: 10 } }
+                    } 
+                } 
             }
         });
     </script>
